@@ -1,0 +1,17 @@
+{
+  "name": "express-js",
+  "version": "1.0.0",
+  "description": "Express JS tutorial",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx nodemon ./index.js",
+    "sass": "sass --no-source-map --watch style/styles.scss public/stylesheets/css/main.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "sass": "^1.83.0"
+  }
+}
