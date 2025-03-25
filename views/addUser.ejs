@@ -1,0 +1,60 @@
+<%- include('components/header') %>
+<%- include('components/topHeader') %>
+<div class="body-wrapper-inner">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title fw-semibold mb-4">Forms</h5>
+          <div class="card">
+            <div class="card-body">
+              <% if(typeof alert!= 'undefined') {%>
+                <% alert.forEach(function(error){ %>
+                  <div class="alert alert-danger" role="alert">
+                    <%= error.msg %>
+                  </div>
+                  <% }) %>  
+              <%}%>
+              <% if(typeof phone!= 'undefined' || typeof email!= 'undefined') {%>
+                <div class="alert alert-danger" role="alert">
+                  <% if (phone === 1 || email === 1) { %>
+                  Duplicate Phone number and Email not Allow!!
+                  <% } %>
+                </div>
+              <%}%>
+              <form method="post" action="/adduser">
+                <div class="mb-3">
+                  <input type="text" placeholder="Name" name="name" class="form-control" autocomplete="off"/>
+                </div>
+                <div class="mb-3">
+                  <input type="tel" placeholder="Phone" name="phone" class="form-control" autocomplete="off"/>
+                </div>
+                <div class="mb-3">
+                  <input type="email" placeholder="email" name="email" class="form-control" autocomplete="off"/>
+                </div>
+                <div class="mb-3">
+                  <input type="password" placeholder="Password" name="password" class="form-control" autocomplete="off"/>
+                </div>
+                <div class="mb-3">
+                  <input type="password" placeholder="Confirm Password" name="cpassword" class="form-control" autocomplete="off"/>
+                </div>
+                <div class="mb-3">
+                  <label for="male">Male</label>
+                  <input type="radio" name="gender" value="Male" id="male" checked/>
+
+                  <label for="female">Female</label>
+                  <input type="radio" name="gender" value="female" id="female" autocomplete="off"/>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <% if(typeof msg!= 'undefined') {%>
+                  <div class="alert alert-success mt-2" role="alert">
+                    <%= msg %>
+                  </div>
+                <%}%>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<%- include('components/footer') %>
